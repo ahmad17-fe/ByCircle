@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --fontPrimary: "Poppins", sans-serif;
+  --gradient: linear-gradient(-90deg, #fff8f9, #f0fcff);
+  --colorPrimary: #1d1e3c;
+  --colorSecondary: #fe998d;
+  --colorBlack: #1a1a1a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--fontPrimary);
+  font-size: 14;
+  user-select: none;
+}
+
+.container {
+  max-width: 1366px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.4rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  height: 60px;
+}
+
+.navbar .container {
+  padding: 0 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+}
+
+.navbar .btn_primary,
+.navbar .menu_list {
+  display: none;
+}
+
+.navbar_logo {
+  display: inherit;
+}
+
+.toggle_menu,
+.close_menu {
+  font-size: 1.9rem;
+  cursor: pointer;
+  display: inherit;
+}
+
+.close_menu {
+  display: none;
+}
+
+/* Navbar Mobile */
+.navbar.mobile-active {
+  background-color: white;
+}
+
+.navbar-mobile {
+  width: 100%;
+  position: absolute;
+  overflow-y: auto;
+  background-color: white;
+  height: calc(100vh - 60px);
+  padding: 1.5rem;
+  z-index: 10;
+  transition: 0.5s all;
+  display: none;
+}
+
+.navbar-mobile-item {
+  display: block;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Hero */
+.hero {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background: var(--gradient);
+}
+
+.ill {
+  width: 100%;
+  max-width: 650px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.ill img {
+  width: 100%;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  display: flex;
+}
+
+.ill .bicycle {
+  width: 60%;
+  z-index: 2;
+}
+
+.ill .bgcircle {
+  width: 90%;
+  margin-top: -4rem;
+  z-index: 1;
+}
+
+.hero-footer {
+  position: absolute;
+  bottom: 1.5rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--colorBlack);
+  display: flex;
+  align-items: center;
+  user-select: none;
+  justify-content: center;
+  width: 100%;
+}
+
+.bid {
+  background-color: var(--colorSecondary);
+  font-size: 1rem;
+  border-radius: 50%;
+  color: white;
+  margin-right: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .toggle_menu,
+  .close_menu {
+    display: none;
+  }
+
+  .navbar .btn_primary,
+  .navbar .menu_list {
+    display: block;
+  }
+
+  .menu_list {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+  }
+
+  .menu-item {
+    text-decoration: none;
+    color: var(--colorPrimary);
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .menu-item.active {
+    font-weight: 600;
+    border-bottom: 2px solid var(--colorSecondary);
+  }
+
+  .navbar.mobile-active {
+    background-color: unset !important;
+  }
+
+  .navbar-mobile {
+    display: none !important;
+  }
+
+  .btn_primary {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    width: 110px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .btn_primary::before {
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 30px;
+    background-color: var(--colorPrimary);
+    z-index: -1;
+    left: 0;
+  }
+
+  .btn_primary::after {
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 30px;
+    background-color: var(--colorSecondary);
+    z-index: -2;
+    left: 2px;
+    top: 2px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar {
+    height: 100px;
+  }
+
+  .btn_primary {
+    font-size: 1.125rem;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .btn_primary::before {
+    width: 140px;
+    height: 40px;
+  }
+
+  .btn_primary::after {
+    width: 140px;
+    height: 40px;
+  }
+}
